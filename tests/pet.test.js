@@ -30,9 +30,9 @@ describe('growUp', () => {
     });
 });
 
-describe('health impairment with growUp', () => {
+describe('health with growUp', () => {
     it('should check if the pets health impairs when it gets older; age should increase by the numebr passed', () => {
-        let testPet = new Pet('Test Pet')
+        let testPet = new Pet('TestPet')
         testPet.growUp(1)
         expect(testPet.hunger).toBe(5);
         expect(testPet.fitness).toBe(7);
