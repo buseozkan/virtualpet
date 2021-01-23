@@ -22,6 +22,14 @@ Pet.prototype.growUp = function () {
 Pet.prototype.growUp = function () {
     this.hunger = this.hunger + 5;
 }
+Pet.prototype.walk = function() {
+    if((this.fitness + 4) <= 10) {
+        this.fitness += 4;
+    } else {
+        this.fitness = 10;
+    }
+}
+const MAXIMUM_FITNESS = 10;
 
 Pet.prototype.growUp = function (){
     this.fitness = this.fitness - 3;
