@@ -60,7 +60,23 @@ Pet.prototype.growUp = function (){
     this.fitness = this.fitness - 3;
 }
 
+Pet.prototype.feed = function(){
+    if(!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+      }
+}
 
+Pet.prototype.walk = function() {
+    if(!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+      }
+}
+
+Pet.prototype.growUp = function() {
+    if(!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+      }
+}
 const pet = {
     name: 'Fido'
 };

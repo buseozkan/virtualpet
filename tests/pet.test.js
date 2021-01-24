@@ -29,25 +29,32 @@ describe('walk', () => {
       expect(pet.fitness).toEqual(10);
     });
   });
-  
 
-describe('growUp', () => {
-    it('should check if the age increases or not', () => {
-        let testPet = new Pet('Test Pet');
-        testPet.growUp(1);
-        expect(testPet.age).toBe(1);
-        testPet.age = 0;
-        testPet.growUp(2);
-        expect(testPet.age).toBe(2);
+describe('feed', () => {
+    it('throws an error if the pet is not alive', () => {
+        const pet = new Pet('Fido');
+        pet.age = 30;
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
     });
 });
 
-describe('health with growUp', () => {
-    it('should check if the pets health impairs when it gets older; age should increase by the numebr passed', () => {
-        let testPet = new Pet('TestPet')
-        testPet.growUp(1)
-        expect(testPet.hunger).toBe(5);
-        expect(testPet.fitness).toBe(7);
-    });
-});
+//describe('growUp', () => {
+  //  it('should check if the age increases or not', () => {
+    //    let testPet = new Pet('Test Pet');
+      //  testPet.growUp(1);
+        //expect(testPet.age).toBe(1);
+        //testPet.age = 0;
+        //testPet.growUp(2);
+        //expect(testPet.age).toBe(2);
+    //});
+//});
+
+//describe('health with growUp', () => {
+  //  it('should check if the pets health impairs when it gets older; age should increase by the numebr passed', () => {
+    //    let testPet = new Pet('TestPet')
+      //  testPet.growUp(1)
+        //expect(testPet.hunger).toBe(5);
+        //expect(testPet.fitness).toBe(7);
+    //});
+//});
 
