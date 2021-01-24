@@ -4,6 +4,13 @@ function Pet(name) {
     this.hunger = 0,
     this.fitness = 10
 }
+Pet.prototype = {
+    get isAlive() {
+   if (this.fitness <= 0 || this.hunger >= 10 || this.age >= 30) {
+       return false;
+   } else {
+       return true;
+}}}
 
 //Pet.prototype = {
   //  get isAlive(){
@@ -30,6 +37,24 @@ Pet.prototype.walk = function() {
     }
 }
 const MAXIMUM_FITNESS = 10;
+
+Pet.prototype.checkUp = function() {
+    if (!this.isAlive) {
+    return 'Your pet is no longer alive :('
+    }
+  if (this.fitness <= 3 && this.hunger >= 5) {
+      return 'I am hungry AND I need a walk!';
+    } 
+   if (this.fitness > 3 && this.hunger < 5) {
+      return 'I feel great!';
+    } 
+   if (this.fitness <= 3) {
+      return 'I need a walk!';
+    } 
+    if (this.hunger >= 5) {
+      return 'I am hungry!';
+    }   
+}
 
 Pet.prototype.growUp = function (){
     this.fitness = this.fitness - 3;
