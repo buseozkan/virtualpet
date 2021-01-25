@@ -2,6 +2,7 @@ const Pet = require('../src/pet');
 const pet = new Pet('Fido');
 pet.name;
 
+
 describe('constructor', () => {
     test('should be an instance of object', () => {
         expect(new Pet('Fido')).toBeInstanceOf(Object);
@@ -21,19 +22,19 @@ describe('create a new Pet', () => {
 
 describe('growUp', () => {
     it('should check if the age increases', () => {
-        Pet.growUp(1);
-        expect(Pet.age).toBe(1);
-        Pet.age = 0;
-        Pet.growUp(2);
-        expect(Pet.age).toBe(2);
+        const pet = new Pet('Fido');
+        pet.age = 1;
+        pet.growUp();
+        expect(pet.age).toEqual(1);
     });
 });
 
+
 describe('walk', () => {
-    it('increases fitness by to a maximum of 10', () => {
-      const pet = new Pet('fido');
+    it('increases fitness by 4 up to a maximum of 10', () => {
+      const pet = new Pet('Fido');
   
-      pet.fitness = 8;
+      pet.fitness = 10;
       pet.walk();
   
       expect(pet.fitness).toEqual(10);

@@ -12,31 +12,30 @@ Pet.prototype = {
        return true;
 }}}
 
-//Pet.prototype = {
-  //  get isAlive(){
-    //    if(!this.fitness <= 0 || this.hunger = 0 || this.age>30) {
-      //      return false;
-       // } else {
-         //   return true;
-        //}
-    //}
-//}
 
 Pet.prototype.growUp = function () {
     this.age += 1;
+    this.hunger += 5;
+    this.fitness -= 3;
 };
 
-Pet.prototype.growUp = function () {
-    this.hunger = this.hunger + 5;
-}
+
+//const MAXIMUM_FITNESS = 10;
 Pet.prototype.walk = function() {
-    if((this.fitness + 4) <= 10) {
+    if(this.fitness <= 5) {
         this.fitness += 4;
     } else {
         this.fitness = 10;
     }
 }
-const MAXIMUM_FITNESS = 10;
+
+Pet.prototype.feed = function() {
+    if (this.hunger <= 3) {
+        this.hunger = 0;
+    } else {
+        this.hunger -= 3;
+    }
+}
 
 Pet.prototype.checkUp = function() {
     if (!this.isAlive) {
@@ -56,9 +55,9 @@ Pet.prototype.checkUp = function() {
     }   
 }
 
-Pet.prototype.growUp = function (){
-    this.fitness = this.fitness - 3;
-}
+//Pet.prototype.growUp = function (){
+  //  this.fitness = this.fitness - 3;
+//}
 
 Pet.prototype.feed = function(){
     if(!this.isAlive) {
