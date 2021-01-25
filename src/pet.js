@@ -4,6 +4,7 @@ function Pet(name) {
     this.hunger = 0,
     this.fitness = 10
 }
+
 Pet.prototype = {
     get isAlive() {
    if (this.fitness <= 0 || this.hunger >= 10 || this.age >= 30) {
@@ -39,18 +40,15 @@ Pet.prototype.feed = function() {
 
 Pet.prototype.checkUp = function() {
     if (!this.isAlive) {
-    return 'Your pet is no longer alive :('
+    throw new Error('Your pet is no longer alive :(');
     }
   if (this.fitness <= 3 && this.hunger >= 5) {
       return 'I am hungry AND I need a walk!';
-    } 
-   if (this.fitness > 3 && this.hunger < 5) {
+    } else if (this.fitness > 3 && this.hunger < 5) {
       return 'I feel great!';
-    } 
-   if (this.fitness <= 3) {
+    } else if (this.fitness <= 3) {
       return 'I need a walk!';
-    } 
-    if (this.hunger >= 5) {
+    } else if (this.hunger >= 5) {
       return 'I am hungry!';
     }   
 }
