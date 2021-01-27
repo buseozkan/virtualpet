@@ -1,3 +1,11 @@
+const MAXIMUM_FITNESS = 10;
+const fitnessinc = 4;
+const fitnessdec = 3;
+const hungerinc = 5;
+const hungerdec = 3;
+const hungermin = 0;
+const ageinc = 1;
+
 function Pet(name) {
     this.name = name,
     this.age = 0,
@@ -7,23 +15,21 @@ function Pet(name) {
 
 Pet.prototype = {
     get isAlive() {
-   if (this.fitness <= 0 || this.hunger >= 10 || this.age >= 30) {
-       return false;
-   } else {
-       return true;
-}}}
+        return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+      }
+    }
 
-
-Pet.prototype.growUp = function () {
-    this.age += 1;
-    this.hunger += 5;
-    this.fitness -= 3;
+Pet.prototype.growUp = function() {
+   
+    this.age = this.age + ageinc;
+    this.hunger = this.hunger + hungerinc;
+    this.fitness -= hungerdec;
 };
 
 
 //const MAXIMUM_FITNESS = 10;
 Pet.prototype.walk = function() {
-    if(this.fitness <= 5) {
+    if((this.fitness + 4) <= 10) {
         this.fitness += 4;
     } else {
         this.fitness = 10;
